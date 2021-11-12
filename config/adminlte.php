@@ -248,15 +248,20 @@ return [
             'target'     => '_blank',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'adminjassc',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'CLIENTES',
+            'url'         => 'adminjassc/clientes',
+            'icon'        => 'fas fa-users',
+            
+        ],
+        [
+            'text'        => 'PROPIEDADES',
+            'url'         => 'adminjassc/propiedades',
+            'icon'        => 'fas fa-home',
+            
         ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
+            'text' => 'Ga',
             'url'  => 'register',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -266,59 +271,22 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
+            'text'    => 'Especificaciones',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Tipo de documentos',
+                    'url'  => 'adminjassc/tipo-documentos',
+                    'icon' => 'fas fa-address-card',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text'    => 'Categoria de propiedades',
+                    'url'     => 'adminjassc/categorias',
+                    'icon' => 'fas fa-city',
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+        
     ],
 
     /*
