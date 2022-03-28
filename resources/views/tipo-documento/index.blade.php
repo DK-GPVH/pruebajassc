@@ -52,13 +52,10 @@
                                         <td>{{ $tipoDocumento->descripcion }}</td>
 
                                         <td>
-                                            <form action="{{ route('tipo-documentos.destroy',$tipoDocumento->id) }}" method="POST">
+                                           
                                                 <a class="btn btn-sm btn-primary " href="{{ route('tipo-documentos.show',$tipoDocumento->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                 <a class="btn btn-sm btn-success" href="{{ route('tipo-documentos.edit',$tipoDocumento->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                            </form>
+                                                
                                         </td>
                                     </tr>
                                 @endforeach

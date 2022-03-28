@@ -42,8 +42,8 @@
                                     <th>Lote</th>
                                     <th>Zona</th>
                                     
-                                    <th>Cliente Id</th>
-                                    <th>Categoria Id</th>
+                                    <th>DNI Cliente</th>
+                                    <th>Categoria</th>
                                     <th>Estado</th>
                                     <th>Fecha Inscripcion</th>
                                     <th>Fecha Adeudo</th>
@@ -56,13 +56,29 @@
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         
-                                        <td class="uppercase">{{ trans($propiedade->manzana) }}</td>
+                                        <td>{{ ($propiedade->manzana) }}</td>
                                         <td>{{ $propiedade->lote }}</td>
                                         <td>{{ $propiedade->zona }}</td>
                                         
-                                        <td>{{ $propiedade->cliente_id }}</td>
-                                        <td>{{ $propiedade->categoria_id }}</td>
-                                        <td>{{ $propiedade->estado }}</td>
+                                        @if($propiedade->cliente_id==null)
+                                        <td class="text-danger">No tiene propietario</td>
+                                        @else
+                                        <td>{{ $propiedade->cliente->nombre}}</td>
+                                        @endif
+
+                                        @if($propiedade->categoria_id==null)
+                                        <td class="text-danger">No tiene una categoria asignada</td>
+                                        @else
+                                        <td>{{ $propiedade->categoria->descripcion }}</td>
+                                        @endif
+                                        
+                                            @if($propiedade->estado==1)
+                                            <td class="text-success">ACTIVO</td>
+                                            @else
+                                            <td class="text-danger">INACTIVO</td>
+                                            @endif
+                                        
+
                                         <td>{{ $propiedade->fecha_inscripcion }}</td>
                                         <td>{{ $propiedade->fecha_adeudo }}</td>
 

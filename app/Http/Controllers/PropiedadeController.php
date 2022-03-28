@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Propiedade;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\Cliente;
+use App\Models\Categoria;
 
 /**
  * Class PropiedadeController
@@ -19,9 +22,10 @@ class PropiedadeController extends Controller
     public function index()
     {
         $propiedades = Propiedade::paginate();
-
+       
         return view('propiedade.index', compact('propiedades'))
             ->with('i', (request()->input('page', 1) - 1) * $propiedades->perPage());
+        
     }
 
     /**
@@ -32,7 +36,9 @@ class PropiedadeController extends Controller
     public function create()
     {
         $propiedade = new Propiedade();
-        return view('propiedade.create', compact('propiedade'));
+        $clientes=Cliente::pluck('nrodocumento','id');
+        $categorias=Categoria::pluck('descripcion','id');
+        return view('propiedade.create', compact('propiedade','clientes','categorias'));
     }
 
     /**
@@ -60,8 +66,13 @@ class PropiedadeController extends Controller
     public function show($id)
     {
         $propiedade = Propiedade::find($id);
+        $fechaactual= Carbon::now();
+        
+        
 
-        return view('propiedade.show', compact('propiedade'));
+        return view('propiedade.show', compact('propiedade'),compact('fechaactual'));
+
+        
     }
 
     /**
@@ -73,8 +84,10 @@ class PropiedadeController extends Controller
     public function edit($id)
     {
         $propiedade = Propiedade::find($id);
+        $clientes=Cliente::pluck('nrodocumento','id');
+        $categorias=Categoria::pluck('descripcion','id');
 
-        return view('propiedade.edit', compact('propiedade'));
+        return view('propiedade.edit', compact('propiedade','clientes','categorias'));
     }
 
     /**
@@ -106,4 +119,8 @@ class PropiedadeController extends Controller
         return redirect()->route('propiedades.index')
             ->with('success', 'Propiedade deleted successfully');
     }
+
+    
+
+    
 }

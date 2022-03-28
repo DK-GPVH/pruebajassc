@@ -22,28 +22,33 @@
             {!! $errors->first('nrodesuministro', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('cliente_id') }}
-            {{ Form::text('cliente_id', $propiedade->cliente_id, ['class' => 'form-control' . ($errors->has('cliente_id') ? ' is-invalid' : ''), 'placeholder' => 'Cliente Id']) }}
+            {{ Form::label('DNI Cliente') }}
+            {{ Form::select('cliente_id', $clientes,$propiedade->cliente_id, ['class' => 'form-control' . ($errors->has('cliente_id') ? ' is-invalid' : ''), 'placeholder' => 'DNI Cliente']) }}
             {!! $errors->first('cliente_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('categoria_id') }}
-            {{ Form::text('categoria_id', $propiedade->categoria_id, ['class' => 'form-control' . ($errors->has('categoria_id') ? ' is-invalid' : ''), 'placeholder' => 'Categoria Id']) }}
+            {{ Form::label('Categoria') }}
+            {{ Form::select('categoria_id', $categorias,$propiedade->categoria_id, ['class' => 'form-control' . ($errors->has('categoria_id') ? ' is-invalid' : ''), 'placeholder' => 'Categoria']) }}
             {!! $errors->first('categoria_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('estado') }}
-            {{ Form::text('estado', $propiedade->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
+            <br>
+            {{ Form::label('activo')}}
+            {{ Form::radio('estado','1',$propiedade->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : '')])}}
+            {{ Form::label('inactivo')}}
+            {{ Form::radio('estado','0',$propiedade->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : '')])}}
             {!! $errors->first('estado', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('fecha_inscripcion') }}
-            {{ Form::text('fecha_inscripcion', $propiedade->fecha_inscripcion, ['class' => 'form-control' . ($errors->has('fecha_inscripcion') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Inscripcion']) }}
+            {{ Form::date('fecha_inscripcion', $propiedade->fecha_inscripcion, ['class' => 'form-control' . ($errors->has('fecha_inscripcion') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Inscripcion']) }}
+           
             {!! $errors->first('fecha_inscripcion', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('fecha_adeudo') }}
-            {{ Form::text('fecha_adeudo', $propiedade->fecha_adeudo, ['class' => 'form-control' . ($errors->has('fecha_adeudo') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Adeudo']) }}
+            {{ Form::date('fecha_adeudo', $propiedade->fecha_adeudo, ['class' => 'form-control' . ($errors->has('fecha_adeudo') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Adeudo']) }}
             {!! $errors->first('fecha_adeudo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
