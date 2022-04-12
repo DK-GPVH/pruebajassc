@@ -4,9 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Propiedade;
+use App\Models\Categoria;
 
-class propiedadesController extends Controller
+
+class categoriasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class propiedadesController extends Controller
      */
     public function index()
     {
-        return Propiedade::all();
+        return Categoria::all();
     }
 
     /**
@@ -35,34 +36,16 @@ class propiedadesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Propiedade $id)
+    public function show(categoria $id)
     {
-        return response()->json([
-            'res'=>true,
-            'propiedades'=>$id
-        ]);
-    
+        return response()->json(
+            [
+                'res' => true,
+                'categoria' => $id
+            ]
+        );
     }
 
-
-    
-    public function llamarpropiedad($manzana,$lote,$nrodesuministro){
-       
-            
-            
-
-            if(Propiedade::wheremanzana($manzana)->wherelote($lote)->wherenrodesuministro($nrodesuministro)->exists()){
-                $propiedad= Propiedade::wheremanzana($manzana)->wherelote($lote)->wherenrodesuministro($nrodesuministro)->get();
-            }else{
-                return response()->json([
-                    "res"=> false
-                ]);
-            }
-            return response()->json(
-                    $propiedad       
-            );
-
-    }
     /**
      * Update the specified resource in storage.
      *

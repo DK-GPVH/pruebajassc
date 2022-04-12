@@ -239,13 +239,9 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'adminjassc/pagos',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-            'icon_color' => 'blue',
-            'target'     => '_blank',
+            'text'        => 'INICIO',
+            'url'         => 'adminjassc',
+            'icon'        => 'fas fa-house-user',
         ],
         [
             'text'        => 'CLIENTES',
@@ -259,16 +255,10 @@ return [
             'icon'        => 'fas fa-home',
             
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'Ga',
-            'url'  => 'register',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'PAGOS',
+            'url'  => 'adminjassc/pagos',
+            'icon' => 'fas fa-coins',
         ],
         [
             'text'    => 'Especificaciones',

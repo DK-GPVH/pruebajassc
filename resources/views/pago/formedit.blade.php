@@ -3,53 +3,15 @@
         
         <div class="form-group">
             {{ Form::label('propiedad_id') }}
-            {{ Form::select('propiedad_id',$casas, $pago->propiedad_id, ['class' => 'form-control' . ($errors->has('propiedad_id') ? ' is-invalid' : ''), 'placeholder' => 'Propiedad Id']) }}
+            {{ Form::label('propiedad_id', $pago->propiedade->nrodesuministro, ['class' => 'form-control' . ($errors->has('propiedad_id') ? ' is-invalid' : ''), 'placeholder' => 'Propiedad Id']) }}
             {!! $errors->first('propiedad_id', '<div class="invalid-feedback">:message</p>') !!}
         </div>
     
-        <div class="form-group border">
-            {{Form::label('<---Datos de la propiedad--->')}}    
-            <br>
-               <strong>
-                   Manzana : 
-                   <p id="Manzana"></p>
-                </strong> 
-                <strong>
-                    Lote : 
-                    <p id="Lote"></p>
-                 </strong>
-                 <strong>
-                    Zona : 
-                    <p id="Zona"></p>
-                 </strong> 
-                 <strong>
-                    Estado : 
-                    <p id="Estado">
-                        <p id="Advertencia"></p>
-                    </p>
-                 </strong>      
-                 <strong>
-                     Cliente : 
-                     <select class="fa"  type="button" id="Cliente_id"></select>
-                    <p id="cliente"></p> 
-                        
-                </strong>
-                <strong>
-                    Categoria : 
-                    <select class="fa"  type="button" id="Categoria_id"></select>
-                   <p id="categoria"></p>    
-               </strong>
-        </div>
-        
-
 
         <div class="form-group">
             {{ Form::label('fecha_pago') }}
-            {{ Form::hidden('fecha_pago',$fechaactual, $pago->fecha_pago, ['class' => 'form-control' . ($errors->has('fecha_pago') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Pago']) }}
+            {{ Form::label('fecha_pago', $pago->fecha_pago, ['class' => 'form-control' . ($errors->has('fecha_pago') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Pago']) }}
             {!! $errors->first('fecha_pago', '<div class="invalid-feedback">:message</p>') !!}
-                <p>
-                    {{$fechaactual}}
-                </p>
             </div>
         
         <div class="form-group">
@@ -67,10 +29,7 @@
             {!! $errors->first('tipo_pago', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
-        <div class="form-group">
-            {{ Form::hidden('estado','1',$pago->tipo_pago, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : '')]) }}
-            {!! $errors->first('estado', '<div class="invalid-feedback">:message</p>') !!}
-        </div>
+        
         <div class="form-group">
             {{ Form::label('monto') }}
             {{ Form::text('monto', $pago->monto, ['class' => 'form-control' . ($errors->has('monto') ? ' is-invalid' : ''), 'placeholder' => 'Monto']) }}

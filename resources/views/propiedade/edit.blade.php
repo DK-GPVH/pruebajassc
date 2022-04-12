@@ -19,9 +19,10 @@
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('propiedades.update', $propiedade->id) }}"  role="form" enctype="multipart/form-data">
+                    
                         {{ method_field('PATCH') }}
                         @csrf
-
+                        
                         @include('propiedade.form')
 
                     </form>

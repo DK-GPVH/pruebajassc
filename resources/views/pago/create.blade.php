@@ -43,7 +43,7 @@
         (e)=>{
             fetch('propiedad',{
                 method :"POST",
-                body : JSON.stringify({texto:e.target.value}),
+                body : JSON.stringify({texto: e.target.value}),
                 headers:{
                     'Content-Type':'application/json',
                     "X-CSRF-TOKEN":csrfToken
@@ -190,15 +190,17 @@
         })
         
         
-        
+    
+
 
         document.getElementById("Confirmarpago").addEventListener('click',(e)=>{
             const idpropiedad=document.getElementById("idpropiedad").value;
             const fecha=new Date(document.getElementById("nuevafecha").value);
             const nuevafecha=fecha.getFullYear() + "-" + (fecha.getMonth()+1) + "-" + (fecha.getDate()+1);
+            
             fetch(idpropiedad+'/actualizarfecha',{
-                method:"PUT",
-                body: JSON.stringify({
+                method :"PUT",
+                body : JSON.stringify({
                     fecha_adeudo: nuevafecha
                 }),
                 headers:{
@@ -206,10 +208,10 @@
                     "X-CSRF-TOKEN": csrfToken
                 }
             }).then(response=>{
-            return response.json()
-        }).then(data=>{
-            console.log(data)
-        }).catch(error=>console.error(error));
+                return response.json();
+            }).then(data=>{
+                console.log(data)
+            }).catch(error=>console.error(error));
         })
        
     </script>

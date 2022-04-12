@@ -124,8 +124,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <a type="button" class="btn btn-primary" value="{{$message->propiedad_id}}"id="Continuarpago">Continuar</a>
-                  <a type="button" class="btn btn-primary" id="Confirmarpago"  style="display:none" href="/adminjassc/pagos">Save changes</a>
+                    <a type="button" class="btn btn-primary" value="{{$message->propiedad_id}}" id="Continuarpago">Continuar</a>
+                  <a type="button" href="./" class="btn btn-primary" id="Confirmarpago"  style="display:none" >Confirmar</a>
                 </div>
               </div>
             </div>

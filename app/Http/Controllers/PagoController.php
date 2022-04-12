@@ -21,9 +21,7 @@ class PagoController extends Controller
      * @return \Illuminate\Http\Response
      */
    
-     public function __invoke(){
-         return 'No me devuelve nada';
-     }
+     
     public function index()
     {
         $pagos = Pago::paginate();
@@ -31,6 +29,8 @@ class PagoController extends Controller
         return view('pago.index', compact('pagos'))
             ->with('i', (request()->input('page', 1) - 1) * $pagos->perPage());
     }
+
+    
 
     /**
      * Show the form for creating a new resource.
@@ -130,7 +130,7 @@ class PagoController extends Controller
 
     public function actualizarfecha($id,Request $request){
         
-        $propiedad= Propiedade::where("id",$id)->update([
+        $propiedad = Propiedade::where("id",$id)->update([
             "fecha_adeudo"=>$request->fecha_adeudo
         ]);
         return response()->json([
@@ -209,9 +209,24 @@ class PagoController extends Controller
      */
     public function destroy($id)
     {
-        $pago = Pago::find($id)->delete();
-
+        $pago = Pago::find($id);
+        if($pago->estado==0){
+            return redirect()->route('pagos.index')
+            ->with('success', 'El pago ya fue cancelado no se podra realizar esta operacion nuevamente');
+        }else{
+        $estado=0;
+        $fecha = Carbon::parse($pago->propiedade->fecha_adeudo);
+        $fechaactualizada=$fecha->subMonths(1);
+        $fechaactualizada2=$fechaactualizada->format('Y-m-d');
+        Propiedade::where("id",$pago->propiedad_id)->update([
+            "fecha_adeudo"=> $fechaactualizada2
+        ]);
+        Pago::where("id",$id)->update([
+            "estado"=>$estado
+        ]);
         return redirect()->route('pagos.index')
-            ->with('success', 'Pago deleted successfully');
+            ->with('success', 'El pago ha sido cancelado con exito');
+        }
+             
     }
 }

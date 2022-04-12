@@ -22,7 +22,7 @@
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('pago.form')
+                            @include('pago.formedit')
 
                         </form>
                     </div>

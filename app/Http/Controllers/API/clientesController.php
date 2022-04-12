@@ -39,7 +39,7 @@ class clientesController extends Controller
     {
         return response()->json([
             'res'=>true,
-            'propiedades'=>$id
+            'cliente'=>$id
         ]);
     }
 
@@ -52,7 +52,7 @@ class clientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -65,4 +65,5 @@ class clientesController extends Controller
     {
         //
     }
+
 }
