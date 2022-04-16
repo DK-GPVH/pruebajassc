@@ -16,7 +16,7 @@
                         <span class="card-title">Detalles del Tipo de Documento</span>
                     </div>
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('tipo-documentos.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('tipo-documentos.index') }}"> Regresar</a>
                     </div>
                 </div>
 

@@ -102,10 +102,13 @@
                const monto1=data['fecha_realizado_trasanterior'],monto2= data['fecha_realizado_anterior'],monto3=data['fecha_realizado_actual'];
                trimestral_montos.push(monto1,monto2,monto3);
             }).catch(error=>console.error(error));
-      //final cargar documento
+      
+      
+            generargraficos();
+            //final cargar documento
         });
      
-     
+     function generargraficos(){
      const ctx = document.getElementById('Chartnrodeclientes').getContext('2d');
     const myChart = new Chart(ctx, {
         type: 'doughnut',
@@ -203,6 +206,6 @@ const balancetrimestraltx = document.getElementById('Chartbalancetrimestral').ge
         }]
     }
 });
-    
+}
 </script>
 @stop

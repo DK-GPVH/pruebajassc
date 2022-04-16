@@ -13,10 +13,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="float-left">
-                        <span class="card-title">Show Cliente</span>
+                        <span class="card-title">Detalles Cliente</span>
                     </div>
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('clientes.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('clientes.index') }}"> Regresar</a>
                     </div>
                 </div>
 

@@ -74,7 +74,7 @@
             {{ Form::radio('tipo_pago','1',$pago->tipo_pago, ['class' => 'form-control' . ($errors->has('tipo_pago') ? ' is-invalid' : '')])}}
             {{Form::label('TRANSFERENCIA')}}
             {{ Form::radio('tipo_pago','2',$pago->tipo_pago, ['class' => 'form-control' . ($errors->has('tipo_pago') ? ' is-invalid' : '')])}}
-            {!! $errors->first('tipo_pago', '<div class="invalid-feedback">:message</p>') !!}
+            {!! $errors->first('tipo_pago', '<div class="text-danger">El tipo de pago es requerido</p>') !!}
         </div>
 
         <div class="form-group">
@@ -138,7 +138,7 @@
     </div>
     
     <div class="box-footer mt20">
-        <button type="submit"  class="btn btn-primary">Submit</button>
+        <button type="submit"  class="btn btn-primary">REALIZAR</button>
     </div>
     
 </div>

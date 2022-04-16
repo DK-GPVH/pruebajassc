@@ -15,7 +15,7 @@
 
             <div class="card card-default">
                 <div class="card-header">
-                    <span class="card-title">Create Categoria</span>
+                    <span class="card-title">Agregar Categoria</span>
                 </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('categorias.store') }}"  role="form" enctype="multipart/form-data">

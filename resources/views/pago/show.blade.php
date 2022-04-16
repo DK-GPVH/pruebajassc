@@ -13,18 +13,24 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Pago</span>
+                            <span class="card-title">DETALLES PAGO</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('pagos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('pagos.index') }}"> REGRESAR</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Propiedad Id:</strong>
-                            {{ $pago->propiedad_id }}
+                            <strong>Propiedad:</strong>
+                            @if($pago->propiedad_id== null)
+                            PROPIEDAD ELIMINADA
+                            @else
+                            {{$pago->propiedade->nrodesuministro}}
+                            MANZANA : {{$pago->propiedade->manzana}}
+                            LOTE : {{$pago->propiedade->lote}}
+                            @endif
                         </div>
                         <div class="form-group">
                             <strong>Fecha Pago:</strong>
@@ -36,11 +42,23 @@
                         </div>
                         <div class="form-group">
                             <strong>Tipo Pago:</strong>
-                            {{ $pago->tipo_pago }}
+                            @if($pago->tipo_pago==1)
+                            EFECTIVO
+                            @elseif($pago->tipo_pago==2)
+                            TRANSFERENCIA
+                            @else
+                            NO-DEFINIDO
+                            @endif
                         </div>
                         <div class="form-group">
                             <strong>Estado:</strong>
-                            {{ $pago->estado }}
+                            @if($pago->estado==0)
+                            PAGO_ERROR
+                            @elseif($pago->estado==1)
+                            PAGO_REALIZADO
+                            @else
+                            NO-DEFINIDO
+                            @endif
                         </div>
                         <div class="form-group">
                             <strong>Monto:</strong>

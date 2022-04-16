@@ -16,7 +16,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Pago</span>
+                        <span class="card-title">NUEVO PAGO</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('pagos.store') }}"  role="form" enctype="multipart/form-data">

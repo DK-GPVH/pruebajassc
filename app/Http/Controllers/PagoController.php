@@ -179,8 +179,12 @@ class PagoController extends Controller
     public function edit($id)
     {
         $pago = Pago::find($id);
-
+        if ($pago->propiedad_id== 0 or null){
+            return redirect()->route('pagos.index')
+            ->with('success', 'La propiedad ha sido eliminada no podra realizar ninguna accion');
+        }else{
         return view('pago.edit', compact('pago'));
+        }
     }
 
     /**
@@ -194,6 +198,7 @@ class PagoController extends Controller
      
     public function update(Request $request, Pago $pago)
     {
+        
         request()->validate(Pago::$rules);
 
         $pago->update($request->all());
@@ -210,6 +215,10 @@ class PagoController extends Controller
     public function destroy($id)
     {
         $pago = Pago::find($id);
+        if($pago->propiedad_id== 0 or null){
+            return redirect()->route('pagos.index')
+            ->with('success', 'La propiedad ha sido eliminada no podra realizar ninguna accion');
+        }else{
         if($pago->estado==0){
             return redirect()->route('pagos.index')
             ->with('success', 'El pago ya fue cancelado no se podra realizar esta operacion nuevamente');
@@ -228,5 +237,6 @@ class PagoController extends Controller
             ->with('success', 'El pago ha sido cancelado con exito');
         }
              
+     }
     }
 }

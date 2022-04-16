@@ -23,7 +23,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('pagos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('NUEVO PAGO') }}
                                 </a>
                               </div>
                         </div>
@@ -41,7 +41,7 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Propiedad Id</th>
+										<th>Propiedad</th>
 										<th>Fecha Pago</th>
 										<th>Descripcion</th>
 										<th>Tipo Pago</th>
@@ -55,12 +55,29 @@
                                     @foreach ($pagos as $pago)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $pago->propiedad_id }}</td>
-											<td>{{ $pago->fecha_pago }}</td>
+                                            @if ($pago->propiedad_id == null)
+                                            <td class="text-danger">Propiedad Eliminada</td>
+                                            @else
+											<td>{{$pago->propiedade->nrodesuministro}}</td>
+											@endif
+                                            <td>{{ $pago->fecha_pago }}</td>
 											<td>{{ $pago->descripcion }}</td>
-											<td>{{ $pago->tipo_pago }}</td>
-											<td>{{ $pago->estado }}</td>
+											@if($pago->tipo_pago== 1)   
+                                            <td class="text-success"> EFECTIVO</td>
+                                            @elseif($pago->tipo_pago== 2)
+                                            <td class="text-primary"> TRANSFERENCIA</td>
+                                            @else
+                                            <td class="text-danger"> NO-DEFINIDO</td>
+                                            @endif
+
+                                            @if($pago->estado==1)
+                                            <td class="text-success">PAGO_REALIZADO</td>
+                                            @elseif($pago->estado==0)
+                                            <td class="text-danger">PAGO_ERROR</td>
+                                            @else
+                                            <td class="text-primary">NO-DEFINIDO</td>
+                                            @endif
+											
 											<td>{{ $pago->monto }}</td>
 
                                             <td>
@@ -69,7 +86,7 @@
                                                     <a class="btn btn-sm btn-success" href="{{ route('pagos.edit',$pago->id) }}"><i class="fa fa-fw fa-edit"></i>Editar Desc.</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Cancelar pago</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i>Invalidar pago</button>
                                                 </form>
                                             </td>
                                         </tr>

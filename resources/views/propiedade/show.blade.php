@@ -16,7 +16,7 @@
                         <span class="card-title">DETALLES PROPIEDAD</span>
                     </div>
                     <div class="float-right">
-                        <a class="btn btn-primary" href="{{ route('propiedades.index') }}"> Back</a>
+                        <a class="btn btn-primary" href="{{ route('propiedades.index') }}"> Regresar</a>
                     </div>
                 </div>
 

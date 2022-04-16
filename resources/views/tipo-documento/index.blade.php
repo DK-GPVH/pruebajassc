@@ -21,7 +21,7 @@
 
                          <div class="float-right">
                             <a href="{{ route('tipo-documentos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                              {{ __('Create New') }}
+                              {{ __('NUEVO') }}
                             </a>
                           </div>
                     </div>
@@ -53,8 +53,8 @@
 
                                         <td>
                                            
-                                                <a class="btn btn-sm btn-primary " href="{{ route('tipo-documentos.show',$tipoDocumento->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                <a class="btn btn-sm btn-success" href="{{ route('tipo-documentos.edit',$tipoDocumento->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <a class="btn btn-sm btn-primary " href="{{ route('tipo-documentos.show',$tipoDocumento->id) }}"><i class="fa fa-fw fa-eye"></i> DETALLES</a>
+                                                <a class="btn btn-sm btn-success" href="{{ route('tipo-documentos.edit',$tipoDocumento->id) }}"><i class="fa fa-fw fa-edit"></i> EDITAR</a>
                                                 
                                         </td>
                                     </tr>
