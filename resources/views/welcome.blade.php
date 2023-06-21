@@ -21,7 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+        <div class="relative flex flex-wrap items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-500 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div>
                     
@@ -30,10 +30,10 @@
                         <div></div>
                         <a href="{{ url('/adminjassc') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">AdminJASSC</a>
                     @else
-                        <a href="{{ route('login') }}" class="bg-red text-sm text-gray-700 dark:text-gray-500 underline" style="background:forestgreen;color:aqua; border-radius:2em;padding:1em">INICIAR SESION</a>
+                        <a href="{{ route('login') }}" class="justify-center underline text-lg text-sky-400 p-4">INICIAR SESION</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline" style="background:forestgreen;color:aqua; border-radius:2em;padding:1em">REGISTRARSE</a>
+                            <a href="{{ route('register') }}">REGISTRARSE</a>
                         @endif
                     @endauth
                 </div>
