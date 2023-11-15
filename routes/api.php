@@ -37,6 +37,8 @@ Route::get('categorias/{id}',[categoriasController::class,'show']);
 Route::get('estadistica',[pagoscontroller::class,'estadistica']);
 Route::get('balancemensual',[pagoscontroller::class,'balancemensual']);
 Route::get('balancetrimestral',[pagoscontroller::class,'balancetrimestral']);
+Route::post('nuevo-pago',[pagoscontroller::class,'nuevopago']);
+Route::get('pagos/{id}',[pagoscontroller::class,'listarpagospropiedad']);
 
 
 Route::post('login',[UserController::class,'login']);

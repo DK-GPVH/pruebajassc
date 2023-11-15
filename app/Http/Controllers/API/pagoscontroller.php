@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pago;
+use App\Models\Propiedade;
 use Carbon\Carbon;
 
 class pagoscontroller extends Controller
@@ -82,6 +83,64 @@ class pagoscontroller extends Controller
                 
             ]
             );
+    }
+
+
+    public function nuevopago(Request $request){
+        $request->validate([
+            'propiedad_id' => 'required',
+		    'fecha_pago' => 'required|date',
+		    'descripcion' => 'required',
+		    'tipo_pago' => 'required',
+		    'estado_pago' => 'required',
+		    'monto' => 'required',
+        ]);
+
+
+        if(Propiedade::where(["id" => $request->propiedad_id])->exists()){
+            $propiedad = Propiedade::find($request->propiedad_id);
+            $cantidad_fechas = count($request->descripcion);
+            $deuda = Carbon::parse($propiedad->fecha_adeudo);
+            $nuevafecha = $deuda->addMonths($cantidad_fechas)->format('Y-m-d');
+
+            $propiedad->manzana = $propiedad->manzana;
+            $propiedad->lote = $propiedad->lote;
+            $propiedad->zona = $propiedad->zona;
+            $propiedad->nrodesuministro = $propiedad->nrodesuministro;
+            $propiedad->estado = $propiedad->estado;
+            $propiedad->fecha_inscripcion = $propiedad->fecha_inscripcion;
+            $propiedad->fecha_adeudo = $nuevafecha;
+            $propiedad->cliente_id = $propiedad->cliente_id;
+            $propiedad->categoria_id = $propiedad->categoria_id;
+            $propiedad->save();
+
+            $pago = new Pago();
+            $pago->propiedad_id = $request->propiedad_id;
+            $pago->fecha_pago = $request->fecha_pago;
+            $pago->descripcion = implode(",",$request->descripcion);
+            $pago->tipo_pago = $request->tipo_pago;
+            $pago->estado = $request->estado_pago;
+            $pago->monto = $request->monto;
+            $pago->save();
+
+            return response([
+                "res" => true,
+                "mensaje" => "Pago efectuado correctamente",
+            ],201);
+        }else{
+            return response([
+                "res" => false,
+                "mensaje" => "Propiedad no encontrada",
+            ],200);
+        }
+    }
+
+    public function listarpagospropiedad($id){
+        $lista = Pago::where(["propiedad_id"=>$id])->get();
+        return response([
+            "res" => true,
+            "mensaje" => $lista,
+        ],200);
     }
     /**
      * Store a newly created resource in storage.
