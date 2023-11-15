@@ -22,3 +22,5 @@ Route::post('pagos/obtenercliente', [PagoController::class,'obtenercliente'])->m
 Route::post('pagos/obtenercategoria', [PagoController::class,'obtenercategoria'])->middleware('correo');
 Route::post('pagos/obtenerfecha', [PagoController::class,'obtenerfecha'])->middleware('correo');
 Route::put('pagos/{id}/actualizarfecha',[PagoController::class,'actualizarfecha'])->middleware('correo');
+
+

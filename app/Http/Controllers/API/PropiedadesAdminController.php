@@ -58,8 +58,7 @@ class PropiedadesAdminController extends Controller
                 "res" => false,
                 "mensaje" => "La propiedad no existe"
             ]);
-        }
-        
+        }  
     }
 
     public function actualizar(Request $request, $id){

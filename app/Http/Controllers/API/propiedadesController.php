@@ -79,7 +79,8 @@ class propiedadesController extends Controller
                 }else{
                     return response()->json([
                         "res" => true,    
-                        "propiedad"=> [ 
+                        "propiedad"=> [
+                            "id" => $propiedad[0]->{"id"},
                             "manzana" => $propiedad[0]->{"manzana"},
                             "lote" => $propiedad[0]->{"lote"},
                             "zona" => $propiedad[0]->{"zona"},
@@ -101,6 +102,7 @@ class propiedadesController extends Controller
                     return response()->json([
                         "res" => true,    
                         "propiedad"=> [ 
+                            "id" => $propiedad[0]->{"id"},
                             "manzana" => $propiedad[0]->{"manzana"},
                             "lote" => $propiedad[0]->{"lote"},
                             "zona" => $propiedad[0]->{"zona"},
@@ -118,6 +120,7 @@ class propiedadesController extends Controller
                 return response()->json([
                     "res" => true,    
                     "propiedad"=> [ 
+                        "id" => $propiedad[0]->{"id"},
                         "manzana" => $propiedad[0]->{"manzana"},
                         "lote" => $propiedad[0]->{"lote"},
                         "zona" => $propiedad[0]->{"zona"},
@@ -140,7 +143,8 @@ class propiedadesController extends Controller
 
             return response()->json([
                     "res" => true,    
-                    "propiedad"=> [ 
+                    "propiedad"=> [
+                        "id" => $propiedad[0]->{"id"}, 
                         "manzana" => $propiedad[0]->{"manzana"},
                         "lote" => $propiedad[0]->{"lote"},
                         "zona" => $propiedad[0]->{"zona"},
